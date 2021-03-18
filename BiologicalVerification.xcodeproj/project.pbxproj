@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04910AB22602E60200850711 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AB12602E60200850711 /* AppDelegate.m */; };
+		04910AB52602E60200850711 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AB42602E60200850711 /* SceneDelegate.m */; };
+		04910AB82602E60200850711 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AB72602E60200850711 /* ViewController.m */; };
+		04910ABB2602E60200850711 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04910AB92602E60200850711 /* Main.storyboard */; };
+		04910ABD2602E60D00850711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04910ABC2602E60D00850711 /* Assets.xcassets */; };
+		04910AC02602E60D00850711 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04910ABE2602E60D00850711 /* LaunchScreen.storyboard */; };
+		04910AC32602E60D00850711 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AC22602E60D00850711 /* main.m */; };
+		04910ACD2602E60D00850711 /* BiologicalVerificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910ACC2602E60D00850711 /* BiologicalVerificationTests.m */; };
+		04910AD82602E60D00850711 /* BiologicalVerificationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AD72602E60D00850711 /* BiologicalVerificationUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04910AC92602E60D00850711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04910AA52602E60200850711 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04910AAC2602E60200850711;
+			remoteInfo = BiologicalVerification;
+		};
+		04910AD42602E60D00850711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04910AA52602E60200850711 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04910AAC2602E60200850711;
+			remoteInfo = BiologicalVerification;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04910AAD2602E60200850711 /* BiologicalVerification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiologicalVerification.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04910AB02602E60200850711 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04910AB12602E60200850711 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04910AB32602E60200850711 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		04910AB42602E60200850711 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		04910AB62602E60200850711 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		04910AB72602E60200850711 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		04910ABA2602E60200850711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04910ABC2602E60D00850711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04910ABF2602E60D00850711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04910AC12602E60D00850711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04910AC22602E60D00850711 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04910AC82602E60D00850711 /* BiologicalVerificationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiologicalVerificationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04910ACC2602E60D00850711 /* BiologicalVerificationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BiologicalVerificationTests.m; sourceTree = "<group>"; };
+		04910ACE2602E60D00850711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04910AD32602E60D00850711 /* BiologicalVerificationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiologicalVerificationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04910AD72602E60D00850711 /* BiologicalVerificationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BiologicalVerificationUITests.m; sourceTree = "<group>"; };
+		04910AD92602E60D00850711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04910AAA2602E60200850711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04910AC52602E60D00850711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04910AD02602E60D00850711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04910AA42602E60200850711 = {
+			isa = PBXGroup;
+			children = (
+				04910AAF2602E60200850711 /* BiologicalVerification */,
+				04910ACB2602E60D00850711 /* BiologicalVerificationTests */,
+				04910AD62602E60D00850711 /* BiologicalVerificationUITests */,
+				04910AAE2602E60200850711 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04910AAE2602E60200850711 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04910AAD2602E60200850711 /* BiologicalVerification.app */,
+				04910AC82602E60D00850711 /* BiologicalVerificationTests.xctest */,
+				04910AD32602E60D00850711 /* BiologicalVerificationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04910AAF2602E60200850711 /* BiologicalVerification */ = {
+			isa = PBXGroup;
+			children = (
+				04910AB02602E60200850711 /* AppDelegate.h */,
+				04910AB12602E60200850711 /* AppDelegate.m */,
+				04910AB32602E60200850711 /* SceneDelegate.h */,
+				04910AB42602E60200850711 /* SceneDelegate.m */,
+				04910AB62602E60200850711 /* ViewController.h */,
+				04910AB72602E60200850711 /* ViewController.m */,
+				04910AB92602E60200850711 /* Main.storyboard */,
+				04910ABC2602E60D00850711 /* Assets.xcassets */,
+				04910ABE2602E60D00850711 /* LaunchScreen.storyboard */,
+				04910AC12602E60D00850711 /* Info.plist */,
+				04910AC22602E60D00850711 /* main.m */,
+			);
+			path = BiologicalVerification;
+			sourceTree = "<group>";
+		};
+		04910ACB2602E60D00850711 /* BiologicalVerificationTests */ = {
+			isa = PBXGroup;
+			children = (
+				04910ACC2602E60D00850711 /* BiologicalVerificationTests.m */,
+				04910ACE2602E60D00850711 /* Info.plist */,
+			);
+			path = BiologicalVerificationTests;
+			sourceTree = "<group>";
+		};
+		04910AD62602E60D00850711 /* BiologicalVerificationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04910AD72602E60D00850711 /* BiologicalVerificationUITests.m */,
+				04910AD92602E60D00850711 /* Info.plist */,
+			);
+			path = BiologicalVerificationUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04910AAC2602E60200850711 /* BiologicalVerification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04910ADC2602E60D00850711 /* Build configuration list for PBXNativeTarget "BiologicalVerification" */;
+			buildPhases = (
+				04910AA92602E60200850711 /* Sources */,
+				04910AAA2602E60200850711 /* Frameworks */,
+				04910AAB2602E60200850711 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BiologicalVerification;
+			productName = BiologicalVerification;
+			productReference = 04910AAD2602E60200850711 /* BiologicalVerification.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04910AC72602E60D00850711 /* BiologicalVerificationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04910ADF2602E60D00850711 /* Build configuration list for PBXNativeTarget "BiologicalVerificationTests" */;
+			buildPhases = (
+				04910AC42602E60D00850711 /* Sources */,
+				04910AC52602E60D00850711 /* Frameworks */,
+				04910AC62602E60D00850711 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04910ACA2602E60D00850711 /* PBXTargetDependency */,
+			);
+			name = BiologicalVerificationTests;
+			productName = BiologicalVerificationTests;
+			productReference = 04910AC82602E60D00850711 /* BiologicalVerificationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04910AD22602E60D00850711 /* BiologicalVerificationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04910AE22602E60D00850711 /* Build configuration list for PBXNativeTarget "BiologicalVerificationUITests" */;
+			buildPhases = (
+				04910ACF2602E60D00850711 /* Sources */,
+				04910AD02602E60D00850711 /* Frameworks */,
+				04910AD12602E60D00850711 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04910AD52602E60D00850711 /* PBXTargetDependency */,
+			);
+			name = BiologicalVerificationUITests;
+			productName = BiologicalVerificationUITests;
+			productReference = 04910AD32602E60D00850711 /* BiologicalVerificationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04910AA52602E60200850711 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = CNKI;
+				TargetAttributes = {
+					04910AAC2602E60200850711 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					04910AC72602E60D00850711 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 04910AAC2602E60200850711;
+					};
+					04910AD22602E60D00850711 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 04910AAC2602E60200850711;
+					};
+				};
+			};
+			buildConfigurationList = 04910AA82602E60200850711 /* Build configuration list for PBXProject "BiologicalVerification" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04910AA42602E60200850711;
+			productRefGroup = 04910AAE2602E60200850711 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04910AAC2602E60200850711 /* BiologicalVerification */,
+				04910AC72602E60D00850711 /* BiologicalVerificationTests */,
+				04910AD22602E60D00850711 /* BiologicalVerificationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04910AAB2602E60200850711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04910AC02602E60D00850711 /* LaunchScreen.storyboard in Resources */,
+				04910ABD2602E60D00850711 /* Assets.xcassets in Resources */,
+				04910ABB2602E60200850711 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04910AC62602E60D00850711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04910AD12602E60D00850711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04910AA92602E60200850711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04910AB82602E60200850711 /* ViewController.m in Sources */,
+				04910AB22602E60200850711 /* AppDelegate.m in Sources */,
+				04910AC32602E60D00850711 /* main.m in Sources */,
+				04910AB52602E60200850711 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04910AC42602E60D00850711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04910ACD2602E60D00850711 /* BiologicalVerificationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04910ACF2602E60D00850711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04910AD82602E60D00850711 /* BiologicalVerificationUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04910ACA2602E60D00850711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04910AAC2602E60200850711 /* BiologicalVerification */;
+			targetProxy = 04910AC92602E60D00850711 /* PBXContainerItemProxy */;
+		};
+		04910AD52602E60D00850711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04910AAC2602E60200850711 /* BiologicalVerification */;
+			targetProxy = 04910AD42602E60D00850711 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04910AB92602E60200850711 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04910ABA2602E60200850711 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04910ABE2602E60D00850711 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04910ABF2602E60D00850711 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04910ADA2602E60D00850711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		04910ADB2602E60D00850711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04910ADD2602E60D00850711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MCBLL5HW5;
+				INFOPLIST_FILE = BiologicalVerification/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.cnki.BiologicalVerification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04910ADE2602E60D00850711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MCBLL5HW5;
+				INFOPLIST_FILE = BiologicalVerification/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.cnki.BiologicalVerification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04910AE02602E60D00850711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MCBLL5HW5;
+				INFOPLIST_FILE = BiologicalVerificationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.cnki.BiologicalVerificationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiologicalVerification.app/BiologicalVerification";
+			};
+			name = Debug;
+		};
+		04910AE12602E60D00850711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MCBLL5HW5;
+				INFOPLIST_FILE = BiologicalVerificationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.cnki.BiologicalVerificationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiologicalVerification.app/BiologicalVerification";
+			};
+			name = Release;
+		};
+		04910AE32602E60D00850711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MCBLL5HW5;
+				INFOPLIST_FILE = BiologicalVerificationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.cnki.BiologicalVerificationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BiologicalVerification;
+			};
+			name = Debug;
+		};
+		04910AE42602E60D00850711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MCBLL5HW5;
+				INFOPLIST_FILE = BiologicalVerificationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.cnki.BiologicalVerificationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BiologicalVerification;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04910AA82602E60200850711 /* Build configuration list for PBXProject "BiologicalVerification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04910ADA2602E60D00850711 /* Debug */,
+				04910ADB2602E60D00850711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04910ADC2602E60D00850711 /* Build configuration list for PBXNativeTarget "BiologicalVerification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04910ADD2602E60D00850711 /* Debug */,
+				04910ADE2602E60D00850711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04910ADF2602E60D00850711 /* Build configuration list for PBXNativeTarget "BiologicalVerificationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04910AE02602E60D00850711 /* Debug */,
+				04910AE12602E60D00850711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04910AE22602E60D00850711 /* Build configuration list for PBXNativeTarget "BiologicalVerificationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04910AE32602E60D00850711 /* Debug */,
+				04910AE42602E60D00850711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04910AA52602E60200850711 /* Project object */;
+}
