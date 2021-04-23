@@ -7,6 +7,8 @@
 //
 
 #import "BiologicalVerificationVC.h"
+#import "DWL_BiologicalVerification.h"
+#import "DWL_UserDefault.h"
 
 
 @interface BiologicalVerificationVC () <WLBiologicalVerificationDelegate>
@@ -23,9 +25,10 @@
     // Do any additional setup after loading the view.
     
     //根据支持的验证类型，构造不同的UI界面
-    if (_type == WLBiologicalVerificationTouchID) {
+    WLBiologicalVerificationType type = [DWL_UserDefault integerForKey:biologicalVerificationTagKey];
+    if (type == WLBiologicalVerificationTouchID) {
         [_btn setTitle:@"Touch ID verification" forState:UIControlStateNormal];
-    } else if (_type == WLBiologicalVerificationFaceID) {
+    } else if (type == WLBiologicalVerificationFaceID) {
         [_btn setTitle:@"Face ID verification" forState:UIControlStateNormal];
     } else {
         [_btn setTitle:@"biological verification" forState:UIControlStateNormal];
@@ -49,43 +52,49 @@
     }
 }
 
-- (void)biologicalVerificationUserFallbackWithType:(WLBiologicalVerificationType)type {
+- (void)biologicalVerificationFailureWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
     
-    NSString *title;
-    if (type == WLBiologicalVerificationTouchID) {
-        title = @"Touch ID fallback clicked";
-    } else if (type == WLBiologicalVerificationFaceID) {
-        title = @"Face ID fallback clicked";
-    } else {
-        title = @"fallback clicked";
-    }
-    self.title = title;
+    NSLog(@"%@：%@", [self class], errorString);
 }
 
-- (void)biologicalVerificationFailureWithType:(WLBiologicalVerificationType)type {
-    
-    NSString *title;
-    if (type == WLBiologicalVerificationTouchID) {
-        title = @"Touch ID 认证连续三次失败";
-    } else if (type == WLBiologicalVerificationFaceID) {
-        title = @"Face ID 认证连续三次失败";
-    } else {
-        title = @"认证连续三次失败";
-    }
-    self.title = title;
+- (void)biologicalVerificationUserCancelWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
+
+    NSLog(@"%@：%@", [self class], errorString);
 }
 
-- (void)biologicalVerificationLockoutWithType:(WLBiologicalVerificationType)type {
+- (void)biologicalVerificationUserFallbackWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
     
-    NSString *title;
-    if (type == WLBiologicalVerificationTouchID) {
-        title = @"Touch ID Locked";
-    } else if (type == WLBiologicalVerificationFaceID) {
-        title = @"Face ID Locked";
-    } else {
-        title = @"Locked";
-    }
-    self.title = title;
+    NSLog(@"%@：%@", [self class], errorString);
+}
+
+- (void)biologicalVerificationSystemCancelWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
+    
+    NSLog(@"%@：%@", [self class], errorString);
+}
+
+- (void)biologicalVerificationPasscodeNotSetWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
+    
+    NSLog(@"%@：%@", [self class], errorString);
+}
+
+- (void)biologicalVerificationNotAvailableWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
+    
+    NSLog(@"%@：%@", [self class], errorString);
+}
+
+- (void)biologicalVerificationNotEnrolledWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
+    
+    NSLog(@"%@：%@", [self class], errorString);
+}
+
+- (void)biologicalVerificationLockoutWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
+    
+    NSLog(@"%@：%@", [self class], errorString);
+}
+
+- (void)biologicalVerificationNotSupportWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
+    
+    NSLog(@"%@：%@", [self class], errorString);
 }
 
 @end

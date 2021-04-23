@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DWL_BiologicalVerification.h"
-
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BiologicalVerificationVC : UIViewController
-
-@property (nonatomic, assign) WLBiologicalVerificationType type;
 
 @end
 
