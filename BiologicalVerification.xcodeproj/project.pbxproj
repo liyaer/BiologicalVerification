@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0481C122262595E000C27041 /* DWL_UserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481C121262595E000C27041 /* DWL_UserDefault.m */; };
 		04910AB22602E60200850711 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AB12602E60200850711 /* AppDelegate.m */; };
-		04910AB82602E60200850711 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AB72602E60200850711 /* ViewController.m */; };
+		04910AB82602E60200850711 /* SetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AB72602E60200850711 /* SetVC.m */; };
 		04910ABB2602E60200850711 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04910AB92602E60200850711 /* Main.storyboard */; };
 		04910ABD2602E60D00850711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04910ABC2602E60D00850711 /* Assets.xcassets */; };
 		04910AC02602E60D00850711 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04910ABE2602E60D00850711 /* LaunchScreen.storyboard */; };
@@ -18,6 +18,7 @@
 		04910AD82602E60D00850711 /* BiologicalVerificationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AD72602E60D00850711 /* BiologicalVerificationUITests.m */; };
 		04910AE72602F13000850711 /* BiologicalVerificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AE62602F13000850711 /* BiologicalVerificationVC.m */; };
 		04910AEA26034AEA00850711 /* DWL_BiologicalVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AE926034AEA00850711 /* DWL_BiologicalVerification.m */; };
+		04E91BCB2645347C00B6F054 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E91BCA2645347C00B6F054 /* LoginVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,14 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0481C11E26257DEA00C27041 /* DWL_Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWL_Const.h; sourceTree = "<group>"; };
 		0481C120262595E000C27041 /* DWL_UserDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWL_UserDefault.h; sourceTree = "<group>"; };
 		0481C121262595E000C27041 /* DWL_UserDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWL_UserDefault.m; sourceTree = "<group>"; };
 		04910AAD2602E60200850711 /* BiologicalVerification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiologicalVerification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04910AB02602E60200850711 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04910AB12602E60200850711 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		04910AB62602E60200850711 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		04910AB72602E60200850711 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		04910AB62602E60200850711 /* SetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetVC.h; sourceTree = "<group>"; };
+		04910AB72602E60200850711 /* SetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetVC.m; sourceTree = "<group>"; };
 		04910ABA2602E60200850711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04910ABC2602E60D00850711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04910ABF2602E60D00850711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		04910AE62602F13000850711 /* BiologicalVerificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BiologicalVerificationVC.m; sourceTree = "<group>"; };
 		04910AE826034AEA00850711 /* DWL_BiologicalVerification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWL_BiologicalVerification.h; sourceTree = "<group>"; };
 		04910AE926034AEA00850711 /* DWL_BiologicalVerification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWL_BiologicalVerification.m; sourceTree = "<group>"; };
+		04E91BC92645347C00B6F054 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		04E91BCA2645347C00B6F054 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +93,6 @@
 		0481C11F26257DF900C27041 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				04910AB02602E60200850711 /* AppDelegate.h */,
-				04910AB12602E60200850711 /* AppDelegate.m */,
 				04910ABC2602E60D00850711 /* Assets.xcassets */,
 				04910ABE2602E60D00850711 /* LaunchScreen.storyboard */,
 				04910AC22602E60D00850711 /* main.m */,
@@ -124,13 +124,16 @@
 			isa = PBXGroup;
 			children = (
 				04910AB92602E60200850711 /* Main.storyboard */,
-				04910AB62602E60200850711 /* ViewController.h */,
-				04910AB72602E60200850711 /* ViewController.m */,
+				04910AB02602E60200850711 /* AppDelegate.h */,
+				04910AB12602E60200850711 /* AppDelegate.m */,
+				04E91BC92645347C00B6F054 /* LoginVC.h */,
+				04E91BCA2645347C00B6F054 /* LoginVC.m */,
 				04910AE52602F13000850711 /* BiologicalVerificationVC.h */,
 				04910AE62602F13000850711 /* BiologicalVerificationVC.m */,
+				04910AB62602E60200850711 /* SetVC.h */,
+				04910AB72602E60200850711 /* SetVC.m */,
 				04910AE826034AEA00850711 /* DWL_BiologicalVerification.h */,
 				04910AE926034AEA00850711 /* DWL_BiologicalVerification.m */,
-				0481C11E26257DEA00C27041 /* DWL_Const.h */,
 				0481C120262595E000C27041 /* DWL_UserDefault.h */,
 				0481C121262595E000C27041 /* DWL_UserDefault.m */,
 				04910AC12602E60D00850711 /* Info.plist */,
@@ -287,11 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04910AB82602E60200850711 /* ViewController.m in Sources */,
+				04910AB82602E60200850711 /* SetVC.m in Sources */,
 				04910AB22602E60200850711 /* AppDelegate.m in Sources */,
 				04910AEA26034AEA00850711 /* DWL_BiologicalVerification.m in Sources */,
 				04910AE72602F13000850711 /* BiologicalVerificationVC.m in Sources */,
 				0481C122262595E000C27041 /* DWL_UserDefault.m in Sources */,
+				04E91BCB2645347C00B6F054 /* LoginVC.m in Sources */,
 				04910AC32602E60D00850711 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

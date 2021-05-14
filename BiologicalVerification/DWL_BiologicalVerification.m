@@ -10,8 +10,17 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 
 
+static NSString *const touchIDResaon = @"通过Home键验证手机已有指纹";
+static NSString *const faceIDReason = @"请将人脸对准屏幕进行识别";
+static NSString *const touchIDLockedResaon = @"指纹识别已锁定，请输入设备密码解锁";
+static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入设备密码解锁";
+
+
 @interface DWL_BiologicalVerification ()
 
+//YES：只使用LAPolicyDeviceOwnerAuthenticationWithBiometrics策略
+//NO：LAPolicyDeviceOwnerAuthenticationWithBiometrics（优先） + LAPolicyDeviceOwnerAuthentication策略
+@property (nonatomic, assign) BOOL onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics;
 @property (nonatomic, weak) id<WLBiologicalVerificationDelegate> delegate;
 @property (nonatomic, strong) LAContext *context;
 
@@ -22,37 +31,64 @@
 
 + (instancetype)verification {
     
-    return [[self alloc] init];
+    DWL_BiologicalVerification *bv = [[self alloc] init];
+    bv.onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics = YES;
+    return bv;
 }
 
 - (WLBiologicalVerificationType)canBiologicalVerificationWithDelegate:(nullable id<WLBiologicalVerificationDelegate>)delegate {
     
     NSError *error;
     
-    //检查设备是否支持生物验证，使用组合策略（优先使用LAPolicyDeviceOwnerAuthenticationWithBiometrics策略）
-    if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-        return [self canBiologicalVerification];
-    } else if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&error]) {
-        return [self canBiologicalVerification];
+    if (_onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics) {
+        
+        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+            return [self canBiologicalVerification];
+        } else {
+            self.delegate = delegate;
+            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
+            return WLBiologicalVerificationNone;
+        }
+        
     } else {
-        self.delegate = delegate;
-        [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
-        return WLBiologicalVerificationNone;
+        
+        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+            return [self canBiologicalVerification];
+        } else if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&error]) {
+            return [self canBiologicalVerification];
+        } else {
+            self.delegate = delegate;
+            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
+            return WLBiologicalVerificationNone;
+        }
+        
     }
 }
 
-- (void)startBiologicalVerificationWithReason:(nullable NSString *)reason fallbackTitle:(nullable NSString *)fallbackTitle delegate:(id<WLBiologicalVerificationDelegate>)delegate {
+- (void)startBiologicalVerificationWithFallbackTitle:(nullable NSString *)fallbackTitle delegate:(id<WLBiologicalVerificationDelegate>)delegate {
     
     self.delegate = delegate;
     
     NSError *error;
     
-    if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-        [self showVerificationWithReason:reason fallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
-    } else if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&error]) {
-        [self showVerificationWithReason:reason fallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthentication];
+    if (_onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics) {
+        
+        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+            [self showVerificationWithFallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
+        } else {
+            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
+        }
+        
     } else {
-        [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
+        
+        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+            [self showVerificationWithFallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
+        } else if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&error]) {
+            [self showVerificationWithFallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthentication];
+        } else {
+            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
+        }
+        
     }
 }
 
@@ -68,7 +104,7 @@
         } else if (_context.biometryType == LABiometryTypeTouchID) {
             return WLBiologicalVerificationTouchID;
         } else {
-            //理论上不会出现该情况
+            //根据调用环境可知，理论上不会出现该情况
 //            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
             return WLBiologicalVerificationNone;
         }
@@ -79,9 +115,9 @@
 }
 
 //进行生物验证（确定设备支持生物验证后，方可调用）
-- (void)showVerificationWithReason:(NSString *)reason fallbackTitle:(NSString *)fallbackTitle type:(WLBiologicalVerificationType)type policy:(LAPolicy)policy {
+- (void)showVerificationWithFallbackTitle:(NSString *)fallbackTitle type:(WLBiologicalVerificationType)type policy:(LAPolicy)policy {
     
-    reason = reason ? : ((type == WLBiologicalVerificationFaceID) ? @"请将人脸对准屏幕进行验证" : @"通过Home键验证手机已有指纹");
+    NSString *reason = (type == WLBiologicalVerificationFaceID) ? faceIDReason : touchIDResaon;
     
     _context.localizedFallbackTitle = fallbackTitle;
     
@@ -283,10 +319,11 @@
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                         [self.delegate biologicalVerificationLockoutWithType:type errorString:errorString];
                     }];
-                    
-//                    if (_onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics) {
-//                        [self verificationLockedOprationWithReason:@"+++++" fallbackTitle:_context.localizedFallbackTitle type:type];
-//                    }
+                }
+                
+                //什么时候调用
+                if (_onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics) {
+                    [self verificationLockedOprationWithFallbackTitle:_context.localizedFallbackTitle type:type];
                 }
             }
         }
@@ -310,20 +347,22 @@
     }
 }
 
-////当生物验证失败5次，生物验证被锁（LAErrorTouchIDLockout）时调用
-//- (void)verificationLockedOprationWithReason:(NSString *)reason fallbackTitle:(NSString *)fallbackTitle type:(WLBiologicalVerificationType)type {
-//    
-//    [_context evaluatePolicy:LAPolicyDeviceOwnerAuthentication localizedReason:@"++++++" reply:^(BOOL success, NSError * _Nullable error) {
-//
-//        if (success) {
-//            
-//            [self showVerificationWithReason:reason fallbackTitle:fallbackTitle type:type policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
-//        } else {
-//            
-//            [self dealWithVerificationError:error type:type];
-//        }
-//    }];
-//}
+//当生物验证失败5次，生物验证被锁（LAErrorTouchIDLockout）时调用
+- (void)verificationLockedOprationWithFallbackTitle:(NSString *)fallbackTitle type:(WLBiologicalVerificationType)type {
+    
+    NSString *reason = (type == WLBiologicalVerificationTouchID) ? touchIDLockedResaon : faceIDLockedResaon;
+    
+    [_context evaluatePolicy:LAPolicyDeviceOwnerAuthentication localizedReason:reason reply:^(BOOL success, NSError * _Nullable error) {
+
+        if (success) {
+            
+            [self showVerificationWithFallbackTitle:fallbackTitle type:type policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
+        } else {
+            
+            [self dealWithVerificationError:error type:type];
+        }
+    }];
+}
 
 #pragma mark - lazy load
 
@@ -336,6 +375,13 @@
     }
     
     return _context;
+}
+
+#pragma mark - dealloc
+
+- (void)dealloc {
+    
+    NSLog(@"%@ relase", [self class]);
 }
 
 @end

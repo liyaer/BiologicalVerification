@@ -9,6 +9,7 @@
 #import "BiologicalVerificationVC.h"
 #import "DWL_BiologicalVerification.h"
 #import "DWL_UserDefault.h"
+#import "SetVC.h"
 
 
 @interface BiologicalVerificationVC () <WLBiologicalVerificationDelegate>
@@ -38,18 +39,15 @@
 - (IBAction)startBiologicalVerification:(id)sender {
     
     //开始验证
-    [[DWL_BiologicalVerification verification] startBiologicalVerificationWithReason:nil fallbackTitle:nil delegate:self];
+    [[DWL_BiologicalVerification verification] startBiologicalVerificationWithFallbackTitle:@"自定义" delegate:self];
 }
 
 #pragma mark - WLBiologicalVerifivationDelegate
 
 - (void)biologicalVerificationSuccessWithType:(WLBiologicalVerificationType)type {
-    
-    if (type == WLBiologicalVerificationFaceID) {
-        self.title = @"FaceID 通过";
-    } else {
-        self.title = @"TouchID 通过";
-    }
+        
+    SetVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Set"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)biologicalVerificationFailureWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
@@ -95,6 +93,13 @@
 - (void)biologicalVerificationNotSupportWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
     
     NSLog(@"%@：%@", [self class], errorString);
+}
+
+#pragma mark - dealloc
+
+- (void)dealloc {
+    
+    NSLog(@"%@ relase", [self class]);
 }
 
 @end

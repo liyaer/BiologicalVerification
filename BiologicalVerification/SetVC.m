@@ -6,20 +6,19 @@
 //  Copyright © 2021 CNKI. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "BiologicalVerificationVC.h"
+#import "SetVC.h"
 #import "DWL_BiologicalVerification.h"
 #import "DWL_UserDefault.h"
 
 
-@interface ViewController ()<WLBiologicalVerificationDelegate>
+@interface SetVC ()<WLBiologicalVerificationDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch *bvEnable;
 
 @end
 
 
-@implementation ViewController
+@implementation SetVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,15 +49,6 @@
         NSLog(@"如果业务场景不需要区分到底是哪种错误类型，可以直接在这里写后续逻辑，此时可以对delegate参数传nil");
     } else {
         [DWL_UserDefault setInteger:type forKey:biologicalVerificationTagKey];
-        
-        //模拟app重启后，出现的指纹登录页面
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            if ([DWL_UserDefault integerForKey:biologicalVerificationTagKey] != WLBiologicalVerificationNone) {
-                BiologicalVerificationVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"BV"];
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-        });
     }
 }
 

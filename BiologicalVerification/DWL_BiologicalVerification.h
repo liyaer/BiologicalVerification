@@ -37,17 +37,13 @@ typedef NS_ENUM(NSInteger, WLBiologicalVerificationType) {
 
 @interface DWL_BiologicalVerification : NSObject
 
-////YES：只使用LAPolicyDeviceOwnerAuthenticationWithBiometrics策略
-////NO：LAPolicyDeviceOwnerAuthenticationWithBiometrics（优先） + LAPolicyDeviceOwnerAuthentication策略
-//@property (nonatomic, assign) BOOL onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics;
-
 + (instancetype)verification;
 
 //检查支持何种类型的生物验证
 - (WLBiologicalVerificationType)canBiologicalVerificationWithDelegate:(nullable id<WLBiologicalVerificationDelegate>)delegate;
 
 //开始进行生物验证
-- (void)startBiologicalVerificationWithReason:(nullable NSString *)reason fallbackTitle:(nullable NSString *)fallbackTitle delegate:(id<WLBiologicalVerificationDelegate>)delegate;
+- (void)startBiologicalVerificationWithFallbackTitle:(nullable NSString *)fallbackTitle delegate:(id<WLBiologicalVerificationDelegate>)delegate;
 
 @end
 
