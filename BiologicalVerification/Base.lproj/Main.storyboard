@@ -46,7 +46,6 @@
         <!--LoginVC-->
         <scene sceneID="Tcq-W8-00m">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OmT-tO-clx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LG" id="PeQ-5s-QF1" customClass="LoginVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMP-jy-462">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -80,6 +79,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3W7-Ql-7hW"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OmT-tO-clx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934" y="139"/>
         </scene>
@@ -97,6 +97,14 @@
                                 <state key="normal" title="开始生物验证"/>
                                 <connections>
                                     <action selector="startBiologicalVerification:" destination="XzP-cQ-b86" eventType="touchUpInside" id="ar5-Cn-rTf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEg-n9-KRq">
+                                <rect key="frame" x="114" y="385" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="使用密码登录"/>
+                                <connections>
+                                    <action selector="passwordLogin:" destination="XzP-cQ-b86" eventType="touchUpInside" id="HmQ-X2-94A"/>
                                 </connections>
                             </button>
                         </subviews>

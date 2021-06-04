@@ -10,6 +10,7 @@
 #import "DWL_BiologicalVerification.h"
 #import "DWL_UserDefault.h"
 #import "SetVC.h"
+#import "LoginVC.h"
 
 
 @interface BiologicalVerificationVC () <WLBiologicalVerificationDelegate>
@@ -32,14 +33,14 @@
     } else if (type == WLBiologicalVerificationFaceID) {
         [_btn setTitle:@"Face ID verification" forState:UIControlStateNormal];
     } else {
-        [_btn setTitle:@"biological verification" forState:UIControlStateNormal];
+        [_btn setTitle:@"不支持生物验证" forState:UIControlStateNormal];
     }
 }
 
 - (IBAction)startBiologicalVerification:(id)sender {
     
     //开始验证
-    [[DWL_BiologicalVerification verification] startBiologicalVerificationWithFallbackTitle:@"自定义" delegate:self];
+    [[DWL_BiologicalVerification verification] startBiologicalVerificationWithFallbackTitle:@"输入密码登录" delegate:self];
 }
 
 #pragma mark - WLBiologicalVerifivationDelegate
@@ -63,6 +64,8 @@
 - (void)biologicalVerificationUserFallbackWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
     
     NSLog(@"%@：%@", [self class], errorString);
+    
+    [self gotoPasswordLogin];
 }
 
 - (void)biologicalVerificationSystemCancelWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
@@ -95,11 +98,17 @@
     NSLog(@"%@：%@", [self class], errorString);
 }
 
-#pragma mark - dealloc
+#pragma mark - 选择密码登录页面
 
-- (void)dealloc {
+- (IBAction)passwordLogin:(id)sender {
     
-    NSLog(@"%@ relase", [self class]);
+    [self gotoPasswordLogin];
+}
+
+- (void)gotoPasswordLogin {
+    
+    LoginVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LG"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end
