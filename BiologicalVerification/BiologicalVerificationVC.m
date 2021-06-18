@@ -40,7 +40,7 @@
 - (IBAction)startBiologicalVerification:(id)sender {
     
     //开始验证
-    [[DWL_BiologicalVerification verification] startBiologicalVerificationWithFallbackTitle:@"输入密码登录" delegate:self];
+    [[DWL_BiologicalVerification verificationWithPolicy:WLPolicyDeviceOwnerAuthenticationWithBiometrics] startBiologicalVerificationWithFallbackTitle:@"输入密码登录" delegate:self];
 }
 
 #pragma mark - WLBiologicalVerifivationDelegate

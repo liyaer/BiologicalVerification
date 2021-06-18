@@ -15,12 +15,15 @@ static NSString *const faceIDReason = @"请将人脸对准屏幕进行识别";
 static NSString *const touchIDLockedResaon = @"指纹识别已锁定，请输入设备密码解锁";
 static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入设备密码解锁";
 
+typedef NS_ENUM(NSInteger, WLErrorTouchIDLockoutHandle) {
+    WLLockoutDoNothing,
+    WLLockoutDoSomething
+};
+
 
 @interface DWL_BiologicalVerification ()
 
-//YES：只使用LAPolicyDeviceOwnerAuthenticationWithBiometrics策略
-//NO：LAPolicyDeviceOwnerAuthenticationWithBiometrics（优先） + LAPolicyDeviceOwnerAuthentication策略
-@property (nonatomic, assign) BOOL onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics;
+@property (nonatomic, assign) WLPolicy policy;
 @property (nonatomic, weak) id<WLBiologicalVerificationDelegate> delegate;
 @property (nonatomic, strong) LAContext *context;
 
@@ -29,39 +32,25 @@ static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入�
 
 @implementation DWL_BiologicalVerification
 
-+ (instancetype)verification {
++ (instancetype)verificationWithPolicy:(WLPolicy)policy {
     
     DWL_BiologicalVerification *bv = [[self alloc] init];
-    bv.onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics = YES;
+    bv.policy = policy;
     return bv;
 }
 
 - (WLBiologicalVerificationType)canBiologicalVerificationWithDelegate:(nullable id<WLBiologicalVerificationDelegate>)delegate {
     
     NSError *error;
-    
-    if (_onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics) {
-        
-        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-            return [self canBiologicalVerification];
-        } else {
-            self.delegate = delegate;
-            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
-            return WLBiologicalVerificationNone;
-        }
-        
+
+    LAPolicy policy = (_policy == WLPolicyDeviceOwnerAuthentication) ? LAPolicyDeviceOwnerAuthentication : LAPolicyDeviceOwnerAuthenticationWithBiometrics;
+
+    if ([self.context canEvaluatePolicy:policy error:&error]) {
+        return [self canBiologicalVerification];
     } else {
-        
-        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-            return [self canBiologicalVerification];
-        } else if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&error]) {
-            return [self canBiologicalVerification];
-        } else {
-            self.delegate = delegate;
-            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
-            return WLBiologicalVerificationNone;
-        }
-        
+        self.delegate = delegate;
+        [self dealWithVerificationError:error type:WLBiologicalVerificationNone handle:WLLockoutDoNothing];
+        return WLBiologicalVerificationNone;
     }
 }
 
@@ -70,25 +59,13 @@ static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入�
     self.delegate = delegate;
     
     NSError *error;
-    
-    if (_onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics) {
-        
-        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-            [self showVerificationWithFallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
-        } else {
-            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
-        }
-        
+
+    LAPolicy policy = (_policy == WLPolicyDeviceOwnerAuthentication) ? LAPolicyDeviceOwnerAuthentication : LAPolicyDeviceOwnerAuthenticationWithBiometrics;
+
+    if ([self.context canEvaluatePolicy:policy error:&error]) {
+        [self showVerificationWithFallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:policy];
     } else {
-        
-        if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-            [self showVerificationWithFallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
-        } else if ([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&error]) {
-            [self showVerificationWithFallbackTitle:fallbackTitle type:[self canBiologicalVerification] policy:LAPolicyDeviceOwnerAuthentication];
-        } else {
-            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
-        }
-        
+        [self dealWithVerificationError:error type:WLBiologicalVerificationNone handle:WLLockoutDoSomething];
     }
 }
 
@@ -104,7 +81,9 @@ static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入�
         } else if (_context.biometryType == LABiometryTypeTouchID) {
             return WLBiologicalVerificationTouchID;
         } else {
-            //根据调用环境可知，理论上不会出现该情况
+            测试5s，can 使用 LAPolicyDeviceOwnerAuthentication 是否会进来，会的，所以这种情况不能忽略，除非业务上can 不使用 LAPolicyDeviceOwnerAuthentication
+            
+            根据调用环境可知，理论上不会出现该情况
 //            [self dealWithVerificationError:error type:WLBiologicalVerificationNone];
             return WLBiologicalVerificationNone;
         }
@@ -130,13 +109,13 @@ static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入�
                 });
             }
         } else {
-            [self dealWithVerificationError:error type:type];
+            [self dealWithVerificationError:error type:type handle:WLLockoutDoSomething];
         }
     }];
 }
 
 //错误处理
-- (void)dealWithVerificationError:(NSError *)error type:(WLBiologicalVerificationType)type {
+- (void)dealWithVerificationError:(NSError *)error type:(WLBiologicalVerificationType)type handle:(WLErrorTouchIDLockoutHandle)handle {
     
     switch (error.code) {
             
@@ -321,9 +300,19 @@ static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入�
                     }];
                 }
                 
-                //什么时候调用
-                if (_onlyLAPolicyDeviceOwnerAuthenticationWithBiometrics) {
-                    [self verificationLockedOprationWithFallbackTitle:_context.localizedFallbackTitle type:type];
+                1，.h 适用业务场景注释描述清楚
+//                2，锁定弹出密码页面，取消后，再次进入，type不准确问题；首次启动页面就精准显示type，如开启touch id
+//                3，测试：验证界面加跳转密码输入按钮，失败五次被锁，密码进入，测试对开启按钮的影响
+//                4，优化：start能否直接调用can方法
+                
+                if (_policy == WLPolicyDeviceOwnerAuthenticationWithBiometrics) {
+                    if (handle == WLLockoutDoSomething) {
+                        [self verificationLockedOprationWithFallbackTitle:_context.localizedFallbackTitle type:type];
+                    } else {
+//                        上面3的解决办法：
+//                            思考：弹出哪种验证合适，可以封装到上面那一个方法里，用_policy区分
+//                            还是在SetVC代理方法中，将按钮状态更改
+                    }
                 }
             }
         }
@@ -355,11 +344,9 @@ static NSString *const faceIDLockedResaon = @"人脸识别已锁定，请输入�
     [_context evaluatePolicy:LAPolicyDeviceOwnerAuthentication localizedReason:reason reply:^(BOOL success, NSError * _Nullable error) {
 
         if (success) {
-            
             [self showVerificationWithFallbackTitle:fallbackTitle type:type policy:LAPolicyDeviceOwnerAuthenticationWithBiometrics];
         } else {
-            
-            [self dealWithVerificationError:error type:type];
+            [self dealWithVerificationError:error type:type handle:WLLockoutDoSomething];
         }
     }];
 }

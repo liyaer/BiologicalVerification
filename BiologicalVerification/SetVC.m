@@ -40,7 +40,7 @@
     }
     
     //点击开启
-    WLBiologicalVerificationType type = [[DWL_BiologicalVerification verification] canBiologicalVerificationWithDelegate:self];
+    WLBiologicalVerificationType type = [[DWL_BiologicalVerification verificationWithPolicy:WLPolicyDeviceOwnerAuthentication] canBiologicalVerificationWithDelegate:self];
     if (type == WLBiologicalVerificationNone) {
         sender.on = NO;
         
