@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="1748" y="496"/>
         </scene>
-        <!--LoginVC-->
+        <!--Account LoginVC-->
         <scene sceneID="Tcq-W8-00m">
             <objects>
-                <viewController storyboardIdentifier="LG" id="PeQ-5s-QF1" customClass="LoginVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LG" id="PeQ-5s-QF1" customClass="AccountLoginVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMP-jy-462">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="934" y="139"/>
         </scene>
-        <!--Biological VerificationVC-->
+        <!--Authentication LoginVC-->
         <scene sceneID="sFs-Wz-NGs">
             <objects>
-                <viewController storyboardIdentifier="BV" id="XzP-cQ-b86" customClass="BiologicalVerificationVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BV" id="XzP-cQ-b86" customClass="AuthenticationLoginVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4qg-7I-OLH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,7 +104,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="使用密码登录"/>
                                 <connections>
-                                    <action selector="passwordLogin:" destination="XzP-cQ-b86" eventType="touchUpInside" id="HmQ-X2-94A"/>
+                                    <action selector="accountLogin:" destination="XzP-cQ-b86" eventType="touchUpInside" id="HmQ-X2-94A"/>
                                 </connections>
                             </button>
                         </subviews>

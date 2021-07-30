@@ -16,9 +16,9 @@
 		04910AC32602E60D00850711 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AC22602E60D00850711 /* main.m */; };
 		04910ACD2602E60D00850711 /* BiologicalVerificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910ACC2602E60D00850711 /* BiologicalVerificationTests.m */; };
 		04910AD82602E60D00850711 /* BiologicalVerificationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AD72602E60D00850711 /* BiologicalVerificationUITests.m */; };
-		04910AE72602F13000850711 /* BiologicalVerificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AE62602F13000850711 /* BiologicalVerificationVC.m */; };
+		04910AE72602F13000850711 /* AuthenticationLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AE62602F13000850711 /* AuthenticationLoginVC.m */; };
 		04910AEA26034AEA00850711 /* DWL_BiologicalVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 04910AE926034AEA00850711 /* DWL_BiologicalVerification.m */; };
-		04E91BCB2645347C00B6F054 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E91BCA2645347C00B6F054 /* LoginVC.m */; };
+		04E91BCB2645347C00B6F054 /* AccountLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E91BCA2645347C00B6F054 /* AccountLoginVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +57,12 @@
 		04910AD32602E60D00850711 /* BiologicalVerificationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiologicalVerificationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04910AD72602E60D00850711 /* BiologicalVerificationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BiologicalVerificationUITests.m; sourceTree = "<group>"; };
 		04910AD92602E60D00850711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04910AE52602F13000850711 /* BiologicalVerificationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BiologicalVerificationVC.h; sourceTree = "<group>"; };
-		04910AE62602F13000850711 /* BiologicalVerificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BiologicalVerificationVC.m; sourceTree = "<group>"; };
+		04910AE52602F13000850711 /* AuthenticationLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticationLoginVC.h; sourceTree = "<group>"; };
+		04910AE62602F13000850711 /* AuthenticationLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthenticationLoginVC.m; sourceTree = "<group>"; };
 		04910AE826034AEA00850711 /* DWL_BiologicalVerification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWL_BiologicalVerification.h; sourceTree = "<group>"; };
 		04910AE926034AEA00850711 /* DWL_BiologicalVerification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWL_BiologicalVerification.m; sourceTree = "<group>"; };
-		04E91BC92645347C00B6F054 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		04E91BCA2645347C00B6F054 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		04E91BC92645347C00B6F054 /* AccountLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountLoginVC.h; sourceTree = "<group>"; };
+		04E91BCA2645347C00B6F054 /* AccountLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountLoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +126,10 @@
 				04910AB92602E60200850711 /* Main.storyboard */,
 				04910AB02602E60200850711 /* AppDelegate.h */,
 				04910AB12602E60200850711 /* AppDelegate.m */,
-				04E91BC92645347C00B6F054 /* LoginVC.h */,
-				04E91BCA2645347C00B6F054 /* LoginVC.m */,
-				04910AE52602F13000850711 /* BiologicalVerificationVC.h */,
-				04910AE62602F13000850711 /* BiologicalVerificationVC.m */,
+				04E91BC92645347C00B6F054 /* AccountLoginVC.h */,
+				04E91BCA2645347C00B6F054 /* AccountLoginVC.m */,
+				04910AE52602F13000850711 /* AuthenticationLoginVC.h */,
+				04910AE62602F13000850711 /* AuthenticationLoginVC.m */,
 				04910AB62602E60200850711 /* SetVC.h */,
 				04910AB72602E60200850711 /* SetVC.m */,
 				04910AE826034AEA00850711 /* DWL_BiologicalVerification.h */,
@@ -293,9 +293,9 @@
 				04910AB82602E60200850711 /* SetVC.m in Sources */,
 				04910AB22602E60200850711 /* AppDelegate.m in Sources */,
 				04910AEA26034AEA00850711 /* DWL_BiologicalVerification.m in Sources */,
-				04910AE72602F13000850711 /* BiologicalVerificationVC.m in Sources */,
+				04910AE72602F13000850711 /* AuthenticationLoginVC.m in Sources */,
 				0481C122262595E000C27041 /* DWL_UserDefault.m in Sources */,
-				04E91BCB2645347C00B6F054 /* LoginVC.m in Sources */,
+				04E91BCB2645347C00B6F054 /* AccountLoginVC.m in Sources */,
 				04910AC32602E60D00850711 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

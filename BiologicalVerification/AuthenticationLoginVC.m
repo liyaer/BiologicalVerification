@@ -6,21 +6,21 @@
 //  Copyright © 2021 CNKI. All rights reserved.
 //
 
-#import "BiologicalVerificationVC.h"
+#import "AuthenticationLoginVC.h"
 #import "DWL_BiologicalVerification.h"
 #import "DWL_UserDefault.h"
 #import "SetVC.h"
-#import "LoginVC.h"
+#import "AccountLoginVC.h"
 
 
-@interface BiologicalVerificationVC () <WLBiologicalVerificationDelegate>
+@interface AuthenticationLoginVC () <WLBiologicalVerificationDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 
 @end
 
 
-@implementation BiologicalVerificationVC
+@implementation AuthenticationLoginVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,7 +65,7 @@
     
     NSLog(@"%@：%@", [self class], errorString);
     
-    [self gotoPasswordLogin];
+    [self gotoAccountLogin];
 }
 
 - (void)biologicalVerificationSystemCancelWithType:(WLBiologicalVerificationType)type errorString:(nonnull NSString *)errorString {
@@ -100,14 +100,14 @@
 
 #pragma mark - 选择密码登录页面
 
-- (IBAction)passwordLogin:(id)sender {
+- (IBAction)accountLogin:(id)sender {
     
-    [self gotoPasswordLogin];
+    [self gotoAccountLogin];
 }
 
-- (void)gotoPasswordLogin {
+- (void)gotoAccountLogin {
     
-    LoginVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LG"];
+    AccountLoginVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LG"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

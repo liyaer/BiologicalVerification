@@ -6,16 +6,16 @@
 //  Copyright © 2021 CNKI. All rights reserved.
 //
 
-#import "LoginVC.h"
+#import "AccountLoginVC.h"
 #import "SetVC.h"
 
 
-@interface LoginVC ()
+@interface AccountLoginVC ()
 
 @end
 
 
-@implementation LoginVC
+@implementation AccountLoginVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
